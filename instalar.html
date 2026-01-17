@@ -3,40 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hyper City Roleplay</title>
+<title>Instalar GTA SA</title>
 
 <style>
 body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:linear-gradient(180deg,#020b2d,#061a52);
     color:white;
     text-align:center;
+    background:url("fundo.jpg") no-repeat center center fixed;
+    background-size:cover;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
 }
+
 .top{
     padding:25px;
     font-size:26px;
     font-weight:bold;
     color:#4db4ff;
+    text-shadow:0 0 10px black;
 }
+
 .card{
-    margin:40px auto;
+    margin:0 auto 30px;
     width:90%;
     max-width:360px;
-    background:#0c1f4a;
-    padding:30px;
+    background:rgba(12,31,74,0.85);
+    padding:25px;
     border-radius:20px;
-    box-shadow:0 0 25px rgba(0,120,255,0.4);
+    box-shadow:0 0 25px rgba(0,120,255,0.6);
 }
-input{
-    width:100%;
-    padding:14px;
-    margin:15px 0;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    outline:none;
-}
+
 button{
     width:100%;
     padding:15px;
@@ -47,7 +47,6 @@ button{
     font-size:20px;
     font-weight:bold;
 }
-button:active{transform:scale(0.97);}
 </style>
 </head>
 
@@ -55,52 +54,14 @@ button:active{transform:scale(0.97);}
 
 <div class="top">Hyper City Roleplay</div>
 
-<div class="card" id="box"></div>
+<div class="card">
+    <h3>Baixar GTA SA Android</h3>
+    <button onclick="baixar()">BAIXAR APK</button>
+</div>
 
 <script>
-const box = document.getElementById('box');
-
-// Tenta abrir o SA-MP para testar se existe
-const test = document.createElement('a');
-test.href = 'samp://test';
-document.body.appendChild(test);
-
-let temGTA = false;
-
-setTimeout(()=>{
-    if(document.visibilityState === 'hidden'){
-        temGTA = true;
-        mostrarJogar();
-    } else {
-        mostrarInstalar();
-    }
-}, 500);
-
-function mostrarInstalar(){
-    box.innerHTML = `
-        <h3>GTA SA não encontrado</h3>
-        <button onclick="instalar()">INSTALAR GTA SA</button>
-    `;
-}
-
-function mostrarJogar(){
-    box.innerHTML = `
-        <input type="text" id="nick" placeholder="Digite seu nick">
-        <button onclick="jogar()">JOGAR</button>
-    `;
-}
-
-function instalar(){
-    window.location.href = 'https://SEU-LINK-DO-APK-AQUI.apk';
-}
-
-function jogar(){
-    const nick = document.getElementById('nick').value.trim();
-    if(!nick){
-        alert('Digite seu nick antes de jogar!');
-        return;
-    }
-    window.location.href = \`samp://HyperCityRP.play.srv.br:7778?nick=\${nick}\`;
+function baixar(){
+    window.location.href = "https://SEU-LINK-DO-APK-AQUI.apk";
 }
 </script>
 
